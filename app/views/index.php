@@ -163,28 +163,28 @@
 						<span>-- Inversting in our clients</span>
 					</div>
 		      	</a>
-		      	<hr>
 	      	</div>
 
 	    </div>
 
       <div class="footer">
-      	<div class="col-lg-6">
+      	<div class="col-md-6">
       		<p>&copy; SetKyarWaLar <?php echo date('Y'); ?></p>
       	</div>
-      	<div class="col-lg-6 pull-right">
-      		Follow on twitter! - 
-      		Like us on FB
+      	<div class=".col-md-6">
+      		<p class="pull-right">Follow on twitter! - Like us on FB</p>
       	</div>
       </div>
-	    
 	</div> <!-- /container -->
+
+	<!-- Flash Message -->
+	<div class="flash"></div>
 
 	<!-- Register Modal -->
 	<div class="modal fade" id="register-modal">
 	  	<div class="modal-dialog">
 	    	<div class="modal-content">
-	    		<form role="form">
+	    		<form role="form" id="register">
 	      			<div class="modal-header">
 	        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 	        			<h4 class="modal-title">Register</h4>
@@ -229,7 +229,7 @@
 				    </div>
 
 				    <div class="modal-footer">
-				        <button type="button" class="btn btn-success">Register</button>
+				        <button type="button" class="btn btn-success" id="register-button">Register</button>
 				    </div>
 				</form>
 	    	</div>

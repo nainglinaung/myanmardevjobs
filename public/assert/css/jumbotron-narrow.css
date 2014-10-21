@@ -59,6 +59,14 @@ body {
   margin-top: 28px;
 }
 
+.flash {
+  display: inline-block;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
@@ -77,3 +85,4 @@ body {
     border-bottom: 0;
   }
 }
+

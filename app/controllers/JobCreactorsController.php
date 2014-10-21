@@ -7,10 +7,17 @@ class JobCreactorsController extends \BaseController {
 	 * GET /jobcreactors
 	 *
 	 * @return Response
+	 * @author Setkyar
 	 */
 	public function index()
 	{
-		//
+		$jobs = JobCreactor::all();
+
+		return Response::json([
+
+			'data'	=> $this->transformCollection($jobs);
+
+		], 200);
 	}
 
 	/**
@@ -18,6 +25,7 @@ class JobCreactorsController extends \BaseController {
 	 * GET /jobcreactors/create
 	 *
 	 * @return Response
+	 * @author Setkyar
 	 */
 	public function create()
 	{
@@ -29,6 +37,7 @@ class JobCreactorsController extends \BaseController {
 	 * POST /jobcreactors
 	 *
 	 * @return Response
+	 * @author Setkyar
 	 */
 	public function store()
 	{
@@ -41,6 +50,7 @@ class JobCreactorsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
+	 * @author Setkyar
 	 */
 	public function show($id)
 	{
@@ -53,6 +63,7 @@ class JobCreactorsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
+	 * @author SetKyar
 	 */
 	public function edit($id)
 	{
@@ -65,6 +76,7 @@ class JobCreactorsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
+	 * @author SetKyar
 	 */
 	public function update($id)
 	{
@@ -77,10 +89,44 @@ class JobCreactorsController extends \BaseController {
 	 *
 	 * @param  int  $id
 	 * @return Response
+	 * @author SetKyar
 	 */
 	public function destroy($id)
 	{
 		//
+	}
+
+	/**
+	* Transform a collection of jobs
+	*
+	* @param $jobs
+	* @return array
+	* @author SetKyar
+	*/
+	private function transformCollection($jobs)
+	{
+		return array_map([$this, 'transform'], $jobs->toArray());
+	}
+
+	
+	//
+	/**
+	* Transform a collection of jobs
+	*
+	* 'active' => (boolean) $jobs['someboolean']
+	*
+	* @param $jobs
+	* @return array
+	* @author SetKyar
+	*/
+	private function transform($jobs)
+	{	
+		
+		return [
+			'title'		=> $jobs['title'],
+			'imgurl'	=> $jobs['imgurl']
+		];
+		
 	}
 
 }

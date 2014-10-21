@@ -1,8 +1,7 @@
 <?php
 
-Route::resource('jobs', 'JobCreactorsController');
+Route::get('/', 'HomeController@ShowAllJobs');
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::post('/register', 'AuthController@create');
+
+Route::resource('jobs', 'JobCreactorsController');
