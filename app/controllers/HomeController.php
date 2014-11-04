@@ -8,6 +8,10 @@ class HomeController extends BaseController {
 	*/
 	public function ShowAllJobs()
 	{
-		return View::make('index');
+		$title = 'Myanmar Dev Jobs';
+
+		$jobs = JobLister::all();
+		
+		return View::make('jobs.index', compact('title', 'jobs'));
 	}
 }
