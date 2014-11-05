@@ -19,26 +19,20 @@
 	    		<hr>
 	    	</div>
 	    	<div class="col-md-12">
-	    		{{ Form::open(array('url' => 'users/joblisters')) }}
+	    		{{ Form::open(array('url' => 'users/user')) }}
 	    			<div class="form-group">
 	    				{{ Form::label('Company Name') }}
-	    				{{ Form::text('position_title', Input::old('position_title'), array('class' => 'form-control', 'placeholder' => 'Jobs Positions Title')) }}
-
-	    				@if ($errors->has('position_title')) <p class="alert alert-danger error">{{ $errors->first('position_title') }}</p> @endif
+	    				{{ Form::text('position_title', Input::old('position_title'), array('class' => 'form-control', 'placeholder' => 'Your Company Name')) }}
 	    			</div>
 	    			<div class="form-group">
 	    				{{ Form::label('Company Website') }}
-	    				{{ Form::text('position_title', Input::old('position_title'), array('class' => 'form-control', 'placeholder' => 'Jobs Positions Title')) }}
-
-	    				@if ($errors->has('position_title')) <p class="alert alert-danger error">{{ $errors->first('position_title') }}</p> @endif
+	    				{{ Form::text('position_title', Input::old('position_title'), array('class' => 'form-control', 'placeholder' => 'Your Company Website')) }}
 	    			</div>
 	    			<div class="form-group">
 	    				{{ Form::label('Company Address') }}
-	    				{{ Form::textarea('jobs_description', Input::old('jobs_description'), array('class' => 'form-control', 'placeholder' => 'Jobs Description')) }}
-
-	    				@if ($errors->has('jobs_description')) <p class="alert alert-danger error">{{ $errors->first('jobs_description') }}</p> @endif
+	    				{{ Form::textarea('jobs_description', Input::old('jobs_description'), array('class' => 'form-control', 'placeholder' => 'Your Company Address')) }}
 	    			</div>
-	    			<button type="submit" class="btn btn-default pull-right">Update Now</button>
+	    			<button type="submit" class="btn btn-default pull-right">Save Company Info!</button>
 	    		{{ Form::close() }}
 	    	</div>
 	    </div>

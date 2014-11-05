@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'HomeController@ShowAllJobs');
+Route::get('/jobs/{id}/{job_title}', 'HomeController@JobDetails');
 
 //Authernication
 Route::get('login/fb', 'AuthController@LoginWithFacebook');

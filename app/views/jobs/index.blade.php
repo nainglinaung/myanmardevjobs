@@ -19,7 +19,7 @@
 	    <div class="row marketing">
 	    	<div class="col-lg-12">
 	    		<div class="input-group">
-	    			<input type="text" class="form-control" placeholder="Filter title, company, type, anything. Updates in real time!">
+	    			<input type="text" class="form-control" placeholder="Filter title, company, type, anything!">
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="button">Search Jobs</button>
 					</span>
@@ -36,7 +36,7 @@
 		      		<img src="/logos/449f0733e88bc390d759838121390f60.png" width="65" height="65" style="width: 65px;height: 65px; float: left; margin-right:10px;">
 		      		<div style="padding-top:11px; display:block; color: #34495E;">
 						<span style="float:right">Full Time</span>
-						<h3 style="margin:0; padding:0;">{{ $job->position_title }}</h3>
+						<a href="/jobs/{{ $job->id }}/{{ $job->position_title }}"><h3 style="margin:0; padding:0;">{{ $job->position_title }}</h3></a>
 						<span style="float:right" class="glyphicon glyphicon-road">Yangon, Myanmar</span>
 					</div>
 					<div style="font-size:small; ">
