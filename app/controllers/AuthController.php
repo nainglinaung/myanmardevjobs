@@ -3,69 +3,9 @@
 class AuthController extends \BaseController {
 
 	/**
-	 * Store a newly created resource in storage.
-	 * POST /auth
-	 *
-	 * @return Response
-	 * @author Setkyar
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /auth/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 * @author Setkyar
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /auth/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 * @author Setkyar
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /auth/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 * @author Setkyar
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /auth/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 * @author Setkyar
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
+	* @return Response
+	* @author SetKyar
+	*/
 	public function LoginWithFacebook()
 	{
 		$facebook = new Facebook(Config::get('facebook'));
@@ -76,6 +16,10 @@ class AuthController extends \BaseController {
 	    return Redirect::to($facebook->getLoginUrl($params));
 	}
 
+	/**
+	* @return Response
+	* @author SetKyar
+	*/
 	public function LoginWithFacebookCallBack()
 	{
 		$code = Input::get('code');
@@ -84,7 +28,7 @@ class AuthController extends \BaseController {
 	    $facebook = new Facebook(Config::get('facebook'));
 	    $uid = $facebook->getUser();
 
-	    if ($uid == 0) return Redirect::to('/')->with('message', 'There was an error');
+	    if ($uid == 0) return Redirect::to('/')->with('message', 'There was an error communicating with Facebook');
 
 	    $me = $facebook->api('/me');
 
@@ -115,6 +59,10 @@ class AuthController extends \BaseController {
 	    return Redirect::to('/users/user')->with('message', 'You had successfully logined!');
 	}
 
+	/**
+	* @return Logging out user's with message
+	* @author SetKyar
+	*/
 	public function Logout()
 	{
 		Auth::logout();
