@@ -4,7 +4,7 @@ class JobListersController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /joblisters
+	 * GET /users/joblisters
 	 *
 	 * @return Response
 	 */
@@ -13,14 +13,14 @@ class JobListersController extends \BaseController {
 		$title 		= "Myanma Dev Jobs | Jobs Lister Panel";
 
 		$user_id 	= Auth::user()->id;
-		$jobs 		= JobLister::where('user_id', '=', $user_id)->get();
+		$jobs 		= JobLister::where('user_id', '=', $user_id)->paginate(10);
 
 		return View::make('JobListers.index', compact('title', 'jobs'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /joblisters/create
+	 * GET /users/joblisters/create
 	 *
 	 * @return Response
 	 */
@@ -33,7 +33,7 @@ class JobListersController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /joblisters
+	 * POST /users/joblisters
 	 *
 	 * @return Response
 	 */
@@ -70,35 +70,24 @@ class JobListersController extends \BaseController {
 	}
 
 	/**
-	 * Display the specified resource.
-	 * GET /joblisters/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
 	 * Show the form for editing the specified resource.
-	 * GET /joblisters/{id}/edit
+	 * GET /users/joblisters/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
-	{
-		$lister = JobLister::find($id);
+	{	
+		$title = 'Edit Your Job!';
 
-        return View::make('users.joblisters.edit')
-            ->with('lister', $lister);
+		$lister = JobLister::find($id);
+		
+		return View::make('JobListers.edit', compact('lister', 'title'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /joblisters/{id}
+	 * PUT /users/joblisters/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -133,14 +122,18 @@ class JobListersController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /joblisters/{id}
+	 * DELETE /users/joblisters/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		
+		$lister = JobLister::find($id);
+		$lister->delete();
+
+		Session::flash('message', 'Successfully deleted your job');
+		return Redirect::to('users/joblisters');
 	}
 
 }
