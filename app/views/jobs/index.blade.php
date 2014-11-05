@@ -47,6 +47,11 @@
 		      	<hr>
 	      	</div>
 	      	@endforeach
+	      	<div class="col-md-12">
+	      		<div class="pull-right">
+	      			{{ $jobs->links(); }}
+	      		</div>
+	      	</div>
 	    </div>
 	</div>
 
