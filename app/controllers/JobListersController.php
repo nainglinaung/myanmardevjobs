@@ -53,13 +53,16 @@ class JobListersController extends \BaseController {
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
-            // store
+        	$current_user_id 		= Auth::user()->id;
+            $current_user_company 	= Company::whereuser_id($current_user_id)->first();
+
             $lister = new JobLister;
             $lister->position_title 	= Input::get('position_title');
             $lister->jobs_description 	= Input::get('jobs_description');
             $lister->jobs_apply			= Input::get('jobs_apply');
             $lister->jobs_contact		= Input::get('jobs_contact');
-            $lister->user_id			= Auth::user()->id;
+            $lister->user_id			= $current_user_id;
+            $lister->company_id			= $current_user_company->id;
 
             $lister->save();
 
@@ -106,11 +109,18 @@ class JobListersController extends \BaseController {
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
+        	$current_user_id 		= Auth::user()->id;
+            $current_user_company 	= Company::whereuser_id($current_user_id)->first();
+
             // store
             $lister = JobLister::find($id);
+
             $lister->position_title 	= Input::get('position_title');
             $lister->jobs_description 	= Input::get('jobs_description');
-            $lister->user_id			= Auth::user()->id;
+            $lister->jobs_apply			= Input::get('jobs_apply');
+            $lister->jobs_contact		= Input::get('jobs_contact');
+            $lister->user_id			= $current_user_id;
+            $lister->company_id			= $current_user_company->id;
 
             $lister->save();
 

@@ -10,25 +10,23 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
+		$title = "Myanma Dev Jobs | User's Dashboard";
+
 		$current_user = array();
 
 	    if (Auth::check()) {
 	        $current_user = Auth::user();
+	    }		
+
+	    $total_company = Company::all()->count();
+
+	    if ($total_company !== 0) {
+	    	$company = Company::where('user_id', '=', Auth::user()->id)->firstOrFail();
+	    } else {
+	    	$company = '';
 	    }
 
-		$title = "Myanma Dev Jobs | User's Dashboard";
-
-		return View::make('Users.index', compact('title', 'current_user'));
+		return View::make('Users.index', compact('title', 'current_user', 'company'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST users/user
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		
-	}
 }

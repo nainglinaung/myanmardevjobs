@@ -20,6 +20,7 @@ class CreateJobListersTable extends Migration {
 			$table->string('jobs_description');
 			$table->string('jobs_apply');
 			$table->string('jobs_contact');
+			$table->integer('company_id');
 			$table->timestamps();
 		});
 	}

@@ -32,9 +32,9 @@ class AuthController extends \BaseController {
 
 	    $me = $facebook->api('/me');
 
-	    $profile = Profile::whereUid($uid)->first();
+	    $companyinfo = Company::wherefb_user_id($uid)->first();
 
-	    if (empty($profile)) {
+	    if (empty($companyinfo)) {
 
 	        $user = new User;
 	        $user->name = $me['first_name'].' '.$me['last_name'];
@@ -43,16 +43,13 @@ class AuthController extends \BaseController {
 
 	        $user->save();
 
-	        $profile = new Profile();
-	        $profile->uid = $uid;
-	        $profile->username = $me['first_name'].' '.$me['last_name'];
-	        $profile = $user->profiles()->save($profile);
+	        $companyinfo = new Company();
+	        $companyinfo->fb_user_id = $uid;
+	        $companyinfo = $user->companyinformation()->save($companyinfo);
 	    }
+	    $companyinfo->save();
 
-	    $profile->access_token = $facebook->getAccessToken();
-	    $profile->save();
-
-	    $user = $profile->user;
+	    $user = $companyinfo->user;
 
 	    Auth::login($user);
 

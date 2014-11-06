@@ -10,8 +10,8 @@ class HomeController extends BaseController {
 	{
 		$title = 'Myanmar Dev Jobs';
 
-		$jobs = JobLister::paginate(10);
-		
+		$jobs = JobLister::with('company')->paginate(10);
+
 		return View::make('jobs.index', compact('title', 'jobs'));
 	}
 
@@ -26,5 +26,12 @@ class HomeController extends BaseController {
 		$lister = JobLister::find($id);
 
 		return View::make('jobs.detail', compact('lister', 'title'));
+	}
+
+	public function About()
+	{
+		$title = 'About Myanmar Dev Job!';
+		
+		return View::make('pages.about', compact('title'));
 	}
 }

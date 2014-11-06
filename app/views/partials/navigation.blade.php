@@ -7,7 +7,7 @@
           	<li><a href="/users/joblisters/">Jobs Dashboard</a></li>
           	<li><a href="/users/logout">Logout</a></li>
           @else
-          	<li><a id="about">About</a></li>
+          	<li><a href="/about">About</a></li>
           @endif
         </ul>
         <a href="/" style="text-decoration:none"><h3 class="text-muted">Developer Jobs</h3></a>
