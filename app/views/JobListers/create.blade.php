@@ -17,6 +17,18 @@
 	    				@if ($errors->has('position_title')) <p class="alert alert-danger error">{{ $errors->first('position_title') }}</p> @endif
 	    			</div>
 	    			<div class="form-group">
+	    				{{ Form::label('Job Type') }}
+	    				{{ Form::text('job_type', Input::old('job_type'), array('class' => 'form-control', 'placeholder' => 'Freelance/FullTime/PartTime')) }}
+
+	    				@if ($errors->has('job_type')) <p class="alert alert-danger error">{{ $errors->first('job_type') }}</p> @endif
+	    			</div>
+	    			<div class="form-group">
+	    				{{ Form::label('City/Country') }}
+	    				{{ Form::text('job_city', Input::old('job_city'), array('class' => 'form-control', 'placeholder' => 'Yangon/Mandalay/NayPyiTaw')) }}
+
+	    				@if ($errors->has('job_city')) <p class="alert alert-danger error">{{ $errors->first('job_city') }}</p> @endif
+	    			</div>
+	    			<div class="form-group">
 	    				{{ Form::label('Jobs Description') }}
 	    				{{ Form::textarea('jobs_description', Input::old('jobs_description'), array('class' => 'form-control', 'placeholder' => 'Jobs Description')) }}
 

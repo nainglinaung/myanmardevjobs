@@ -36,4 +36,9 @@ class HomeController extends BaseController {
 		
 		return View::make('pages.about', compact('title','total_user'));
 	}
+
+	public function Search()
+	{
+		
+	}
 }

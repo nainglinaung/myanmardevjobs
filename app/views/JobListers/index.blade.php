@@ -24,7 +24,7 @@
 				        @foreach($jobs as $job)
 				          <tr>
 				            <td>{{ $job->position_title }}</td>
-				            <td>Full Time</td>
+				            <td>{{ $job->job_type }}</td>
 				            <td>
 				            	<a href="{{ URL::to('users/joblisters/' . $job->id . '/edit') }}" class="btn btn-default">Edit Job</a>
 				            </td>

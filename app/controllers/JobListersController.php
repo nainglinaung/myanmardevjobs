@@ -41,6 +41,8 @@ class JobListersController extends \BaseController {
 	{
 		$rules = array(
 			'position_title'	=> 'required',
+			'job_type'			=> 'required',
+			'job_city'			=> 'required',
 			'jobs_description'	=> 'required',
 			'jobs_apply'		=> 'required',
 			'jobs_contact'		=> 'required'
@@ -58,6 +60,8 @@ class JobListersController extends \BaseController {
 
             $lister = new JobLister;
             $lister->position_title 	= Input::get('position_title');
+            $lister->job_type 			= Input::get('job_type');
+            $lister->job_city 			= Input::get('job_city');
             $lister->jobs_description 	= Input::get('jobs_description');
             $lister->jobs_apply			= Input::get('jobs_apply');
             $lister->jobs_contact		= Input::get('jobs_contact');
@@ -116,6 +120,8 @@ class JobListersController extends \BaseController {
             $lister = JobLister::find($id);
 
             $lister->position_title 	= Input::get('position_title');
+            $lister->job_type 			= Input::get('job_type');
+            $lister->job_city 			= Input::get('job_city');
             $lister->jobs_description 	= Input::get('jobs_description');
             $lister->jobs_apply			= Input::get('jobs_apply');
             $lister->jobs_contact		= Input::get('jobs_contact');

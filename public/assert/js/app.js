@@ -4,7 +4,7 @@
 		var current_hours = now.getHours();
 
 		if (window.location.pathname === "/") {
-			if (current_hours > 1 && current_hours < 3) {
+			if (current_hours >= 0 && current_hours < 3) {
 				$('.greating').html('<div style="color:#fff">It\'s now mid night! Have a nice day!</div>');
 			} else if (current_hours > 3 && current_hours < 6) {
 				$('.greating').html('<div style="color:#fff">It\'s now very early! Good Morning!</div>');

@@ -3,6 +3,7 @@
 /app/config/facebook.php
 /app/config/database.php
 /logs/
+/public/upload/
 /awstats/
 composer.phar
 composer.lock

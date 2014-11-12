@@ -8,11 +8,36 @@
 
 	    <div class="row">
 	    	<div class="col-md-4">
-	    		<img src="/logos/default.png" />
-	    		<h2>{{ $lister->company->company_name }}</h2>
-	    		<span>Address</span> <p>{{ $lister->company->company_address }}</p>
-	    		<span>Website</span> <p>{{ $lister->company->company_website }}</p>
-
+	    		<div>
+		    		@if(empty($lister->company->company_logo))
+		      			<img src="/logos/default.png" width="100%">
+		      		@else
+		      			<img src="/upload/{{ $lister->company->company_logo }}" width="100%">
+		      		@endif
+	      		</div>
+	    		<div>
+		    		@if(!empty($lister->company->company_name))
+		    			<h2>{{ $lister->company->company_name }}</h2>
+					@else
+						<strong>No Company's Name Describe</strong>
+					@endif
+				</div>
+				<div>
+		    		<span>Address</span> 
+		    		@if(!empty($lister->company->company_address))
+		    			<p>{{ $lister->company->company_address }}</p>
+					@else
+						<strong>No Company's Address Describe</strong>
+					@endif
+				</div>
+	    		<div>
+	    			<span>Website</span> 
+	    			@if(!empty($lister->company->company_website))
+		    			<p>{{ $lister->company->company_website }}</p>
+					@else
+						<strong>No Company's Website Describe</strong>
+					@endif
+	    		</div>
 	    	</div>
 	    	<div class="col-md-8">
 	    		<div class="row">
@@ -20,7 +45,7 @@
 	    				<h4>{{ $lister->position_title }}</h4>		
 	    			</div>
 	    			<div class="col-md-4">
-	    				<h4>Full Time</h4>
+	    				<h4>{{ $lister->job_type }}</h4>
 	    			</div>
 	    			<div class="col-md-12">
 	    				<hr><b>Job Description</b>

@@ -30,18 +30,22 @@
 		    	@foreach($jobs as $job)
 		      	<div class="col-md-12 job-post">
 			    	<a href="#">
-			      		@if(empty($job->company_logo))
+			      		@if(empty($job->company->company_logo))
 			      			<img src="/logos/default.png" style="width: 65px;height: 65px; float: left; margin-right:10px;">
 			      		@else
-			      			<img src="{{ $job->company->company_logo}}" style="width: 65px;height: 65px; float: left; margin-right:10px;">
+			      			<img src="/upload/{{ $job->company->company_logo }}" style="width: 65px;height: 65px; float: left; margin-right:10px;">
 			      		@endif
 			      		<div style="padding-top:11px; display:block; color: #34495E;">
-							<span style="float:right">Full Time</span>
+							<span style="float:right">{{ $job->job_type }}</span>
 							<a href="/jobs/{{ $job->id }}/{{ $job->position_title }}"><h3 style="margin:0; padding:0;">{{ $job->position_title }}</h3></a>
-							<span style="float:right" class="glyphicon glyphicon-road">Yangon, Myanmar</span>
+							<span style="float:right" class="glyphicon glyphicon-road">{{ $job->job_city }}</span>
 						</div>
 						<div style="font-size:small; ">
-							<strong><a href="{{ $job->company->company_website }}"></a>{{ $job->company->company_name }}</strong>
+							@if(!empty($job->company->company_name))
+								<strong><a href="{{ $job->company->company_name}}"></a>{{ $job->company->company_name }}</strong>
+							@else
+							<strong>No Company Name Describe</strong>
+							@endif
 						</div>
 			      	</a>
 		      	</div>
