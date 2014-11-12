@@ -2,6 +2,8 @@
 /vendor
 /app/config/facebook.php
 /app/config/database.php
+/logs/
+/awstats/
 composer.phar
 composer.lock
 .env.*.php
