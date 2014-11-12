@@ -41,13 +41,12 @@ class CompanyController extends \BaseController
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
 		} else {
-			$company = Company::find($id);
-
+			$company = Company::find($id)->firstOrFail();
 			$current_user_id = Auth::id();
 
-			if ($company->user_id === $current_user_id) {
+			if ($company->user_id == $current_user_id) {
 				// store
-		        $company->user_id 		= Auth::user()->id;
+		        $company->user_id 			= Auth::user()->id;
 		        $company->company_name		= Input::get('company_name');
 				$company->company_website	= Input::get('company_website');
 				$company->company_address	= Input::get('company_address');
