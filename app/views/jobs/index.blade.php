@@ -28,7 +28,7 @@
 	    @if(!empty($jobs))
 	    <div class="row marketing">
 		    	@foreach($jobs as $job)
-		      	<div class="col-md-12">
+		      	<div class="col-md-12 job-post">
 			    	<a href="#">
 			      		@if(empty($job->company_logo))
 			      			<img src="/logos/default.png" style="width: 65px;height: 65px; float: left; margin-right:10px;">
