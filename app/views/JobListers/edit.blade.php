@@ -2,7 +2,7 @@
 
 @section('content')
     
-	<div class="container">
+	<div class="container main">
 	    <div class="row">
 	    	<div class="col-md-12">
 	    		<h3>Edit your {{ $lister->position_title }} Job Advertising</h3>

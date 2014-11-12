@@ -2,22 +2,17 @@
 
 @section('content')
     
-	<div class="container">
+	<div class="container main">
 		
 		@include('partials.message')
 
-		<div class="row">
-			<div class="col-md-12">
-				<h1>{{ $lister->position_title }}</h1>
-				<hr>
-			</div>
-		</div>
-
 	    <div class="row">
 	    	<div class="col-md-4">
-	    		<p>Company Name</p>
-	    		<p>Company's Address</p>
-	    		<p>Something Else</p>
+	    		<img src="/logos/default.png" />
+	    		<h2>{{ $lister->company->company_name }}</h2>
+	    		<span>Address</span> <p>{{ $lister->company->company_address }}</p>
+	    		<span>Website</span> <p>{{ $lister->company->company_website }}</p>
+
 	    	</div>
 	    	<div class="col-md-8">
 	    		<div class="row">

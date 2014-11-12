@@ -7,7 +7,9 @@
 </head>
 <body>
 	@include('partials.navigation')
-	@yield('content')
+
+		@yield('content')
+
 	@include('partials.footer')
 	<script type="text/javascript" src="/assert/js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="/assert/js/bootstrap.js"></script>

@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 	{
 		$title = 'Myanmar Dev Jobs ' . $job_title;
 
-		$lister = JobLister::find($id);
+		$lister = JobLister::with('company')->find($id);
 
 		return View::make('jobs.detail', compact('lister', 'title'));
 	}
@@ -31,7 +31,9 @@ class HomeController extends BaseController {
 	public function About()
 	{
 		$title = 'About Myanmar Dev Job!';
+
+		$total_user = User::all()->count();
 		
-		return View::make('pages.about', compact('title'));
+		return View::make('pages.about', compact('title','total_user'));
 	}
 }
