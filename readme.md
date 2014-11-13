@@ -8,18 +8,18 @@ Edit your local environment on `bootstrap/start.php` on line 29
 'local' => array('setkyar'),
 ``` 
 
-change your computer host insert of `setkyar`
+change your computer host instead of `setkyar`
 
 ### Facebook Configuration
 
-Add Facebook Appp ID and Secret to `app/config/facebook.php`
+Add Facebook App ID and Secret to `app/config/facebook.php`
 
 ### Database Configuration
 
 Edit your database configuration at `app/config/database.php`
 
 
-### Run App
+### Running your App
 
 Run `php artisan serve`
 
